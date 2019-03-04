@@ -67,7 +67,7 @@ newNav1.prepend("Hotdogs");
 
 //CTA
 let ctaText = document.getElementsByTagName("h1");
-ctaText[0].textContent = "DOM is awesome!"
+ctaText[0].innerHTML = "DOM" + "<br>" + "is" + "<br>" + "awesome!";
 console.log(ctaText[0]);
 
 let ctaImg = document.getElementById("cta-img");
