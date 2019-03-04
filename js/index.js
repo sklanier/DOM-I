@@ -55,8 +55,15 @@ console.log(nav[0]);
 let counter = 1;
 nav.forEach(currentItem => {
   currentItem.textContent = siteContent['nav'][`nav-item-${counter}`];
+  currentItem.style.color = 'green';
   counter++
 })
+
+let newNav1 = document.querySelectorAll('a')[0];
+newNav1.prepend("Hotdogs");
+
+//let newNav2 = document.querySelectorAll('a')[5].createElement('block').appendChild(document.querySelectorAll('a')[5].createElement('b'));
+//newNav2.createElement('block').appendChild(newNav2.createElement('b'));
 
 //CTA
 let ctaText = document.getElementsByTagName("h1");
