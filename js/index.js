@@ -15,16 +15,16 @@ const siteContent = {
   },
   "main-content": {
     "h4-1":"Features",
-    "features-content": "Features content elementum magna eros, ac posuere elvit tempus et. Suspendisse vel tempus odio, in interdutm nisi. Suspendisse eu ornare nisl. Nullam convallis augue justo, at imperdiet metus scelerisque quis.",
+    "content-1": "Features content elementum magna eros, ac posuere elvit tempus et. Suspendisse vel tempus odio, in interdutm nisi. Suspendisse eu ornare nisl. Nullam convallis augue justo, at imperdiet metus scelerisque quis.",
     "h4-2":"About",
-    "about-content": "About content elementum magna eros, ac posuere elvit tempus et. Suspendisse vel tempus odio, in interdutm nisi. Suspendisse eu ornare nisl. Nullam convallis augue justo, at imperdiet metus scelerisque quis.",
+    "content-2": "About content elementum magna eros, ac posuere elvit tempus et. Suspendisse vel tempus odio, in interdutm nisi. Suspendisse eu ornare nisl. Nullam convallis augue justo, at imperdiet metus scelerisque quis.",
     "middle-img-src": "img/mid-page-accent.jpg",
     "h4-3":"Services",
-    "services-content": "Services content elementum magna eros, ac posuere elvit tempus et. Suspendisse vel tempus odio, in interdutm nisi. Suspendisse eu ornare nisl. Nullam convallis augue justo, at imperdiet metus scelerisque quis.",
+    "content-3": "Services content elementum magna eros, ac posuere elvit tempus et. Suspendisse vel tempus odio, in interdutm nisi. Suspendisse eu ornare nisl. Nullam convallis augue justo, at imperdiet metus scelerisque quis.",
     "h4-4":"Product",
-    "product-content": "Product content elementum magna eros, ac posuere elvit tempus et. Suspendisse vel tempus odio, in interdutm nisi. Suspendisse eu ornare nisl. Nullam convallis augue justo, at imperdiet metus scelerisque quis.",
+    "content-4": "Product content elementum magna eros, ac posuere elvit tempus et. Suspendisse vel tempus odio, in interdutm nisi. Suspendisse eu ornare nisl. Nullam convallis augue justo, at imperdiet metus scelerisque quis.",
     "h4-5":"Vision",
-    "vision-content": "Vision content elementum magna eros, ac posuere elvit tempus et. Suspendisse vel tempus odio, in interdutm nisi. Suspendisse eu ornare nisl. Nullam convallis augue justo, at imperdiet metus scelerisque quis.",
+    "content-5": "Vision content elementum magna eros, ac posuere elvit tempus et. Suspendisse vel tempus odio, in interdutm nisi. Suspendisse eu ornare nisl. Nullam convallis augue justo, at imperdiet metus scelerisque quis.",
   },
   "contact": {
     "contact-h4" : "Contact",
@@ -79,6 +79,27 @@ allh4.forEach(currentItem => {
   counter2++
 })
 
+let allContent = document.querySelectorAll("p");
+let counter3 = 1;
+allContent.forEach(currentItem => {
+  currentItem.textContent = siteContent['main-content'][`content-${counter3}`];
+  counter3++
+})
+
+let mainImg = document.getElementById("middle-img");
+mainImg.setAttribute('src', siteContent["main-content"]["middle-img-src"]);
+
 //Contact
+let lasth4 = document.querySelectorAll("h4")[5];
+lasth4.textContent = "Contact";
+
+let contactP1 = document.querySelectorAll("p")[5];
+contactP1.textContent = siteContent["contact"]["address"];
+let contactP2 = document.querySelectorAll("p")[6];
+contactP2.textContent = siteContent["contact"]["phone"];
+let contactP3 = document.querySelectorAll("p")[7];
+contactP3.textContent = siteContent["contact"]["email"];
 
 //Footer
+let footerP1 = document.querySelectorAll("p")[8];
+footerP1.textContent = siteContent["footer"]["copyright"];
