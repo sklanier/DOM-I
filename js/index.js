@@ -59,12 +59,6 @@ nav.forEach(currentItem => {
   counter++
 })
 
-let newNav1 = document.querySelectorAll('a')[0];
-newNav1.prepend("Hotdogs");
-
-//let newNav2 = document.querySelectorAll('a')[5].createElement('block').appendChild(document.querySelectorAll('a')[5].createElement('b'));
-//newNav2.createElement('block').appendChild(newNav2.createElement('b'));
-
 //CTA
 let ctaText = document.getElementsByTagName("h1");
 ctaText[0].innerHTML = "DOM" + "<br>" + "is" + "<br>" + "awesome!";
@@ -110,3 +104,13 @@ contactP3.textContent = siteContent["contact"]["email"];
 //Footer
 let footerP1 = document.querySelectorAll("p")[8];
 footerP1.textContent = siteContent["footer"]["copyright"];
+
+//Add two items to navigation
+selectedNavLinks = document.getElementsByTagName("nav")[0];
+let createNewNode = (name) => {
+  let newNode = document.createElement("a");
+  newNode.innerHTML = name;
+  return newNode;
+}
+selectedNavLinks.prepend(createNewNode("Hotdogs"));
+selectedNavLinks.append(createNewNode("Recipes"));
