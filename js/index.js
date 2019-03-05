@@ -14,17 +14,17 @@ const siteContent = {
     "img-src": "img/header-img.png"
   },
   "main-content": {
-    "features-h4":"Features",
-    "features-content": "Features content elementum magna eros, ac posuere elvit tempus et. Suspendisse vel tempus odio, in interdutm nisi. Suspendisse eu ornare nisl. Nullam convallis augue justo, at imperdiet metus scelerisque quis.",
-    "about-h4":"About",
-    "about-content": "About content elementum magna eros, ac posuere elvit tempus et. Suspendisse vel tempus odio, in interdutm nisi. Suspendisse eu ornare nisl. Nullam convallis augue justo, at imperdiet metus scelerisque quis.",
+    "h4-1":"Features",
+    "content-1": "Features content elementum magna eros, ac posuere elvit tempus et. Suspendisse vel tempus odio, in interdutm nisi. Suspendisse eu ornare nisl. Nullam convallis augue justo, at imperdiet metus scelerisque quis.",
+    "h4-2":"About",
+    "content-2": "About content elementum magna eros, ac posuere elvit tempus et. Suspendisse vel tempus odio, in interdutm nisi. Suspendisse eu ornare nisl. Nullam convallis augue justo, at imperdiet metus scelerisque quis.",
     "middle-img-src": "img/mid-page-accent.jpg",
-    "services-h4":"Services",
-    "services-content": "Services content elementum magna eros, ac posuere elvit tempus et. Suspendisse vel tempus odio, in interdutm nisi. Suspendisse eu ornare nisl. Nullam convallis augue justo, at imperdiet metus scelerisque quis.",
-    "product-h4":"Product",
-    "product-content": "Product content elementum magna eros, ac posuere elvit tempus et. Suspendisse vel tempus odio, in interdutm nisi. Suspendisse eu ornare nisl. Nullam convallis augue justo, at imperdiet metus scelerisque quis.",
-    "vision-h4":"Vision",
-    "vision-content": "Vision content elementum magna eros, ac posuere elvit tempus et. Suspendisse vel tempus odio, in interdutm nisi. Suspendisse eu ornare nisl. Nullam convallis augue justo, at imperdiet metus scelerisque quis.",
+    "h4-3":"Services",
+    "content-3": "Services content elementum magna eros, ac posuere elvit tempus et. Suspendisse vel tempus odio, in interdutm nisi. Suspendisse eu ornare nisl. Nullam convallis augue justo, at imperdiet metus scelerisque quis.",
+    "h4-4":"Product",
+    "content-4": "Product content elementum magna eros, ac posuere elvit tempus et. Suspendisse vel tempus odio, in interdutm nisi. Suspendisse eu ornare nisl. Nullam convallis augue justo, at imperdiet metus scelerisque quis.",
+    "h4-5":"Vision",
+    "content-5": "Vision content elementum magna eros, ac posuere elvit tempus et. Suspendisse vel tempus odio, in interdutm nisi. Suspendisse eu ornare nisl. Nullam convallis augue justo, at imperdiet metus scelerisque quis.",
   },
   "contact": {
     "contact-h4" : "Contact",
@@ -40,3 +40,77 @@ const siteContent = {
 // Example: Update the img src for the logo
 let logo = document.getElementById("logo-img");
 logo.setAttribute('src', siteContent["nav"]["img-src"])
+
+//Nav
+let nav = document.querySelectorAll('a');
+nav[0].textContent = "Services";
+nav[1].textContent = "Product";
+nav[2].textContent = "Vision";
+nav[3].textContent = "Features";
+nav[4].textContent = "About";
+nav[5].textContent = "Contact";
+console.log(nav[0]);
+
+//ANUBHAV'S CODE
+let counter = 1;
+nav.forEach(currentItem => {
+  currentItem.textContent = siteContent['nav'][`nav-item-${counter}`];
+  currentItem.style.color = 'green';
+  counter++
+})
+
+//CTA
+let ctaText = document.getElementsByTagName("h1");
+ctaText[0].innerHTML = "DOM" + "<br>" + "is" + "<br>" + "awesome!";
+console.log(ctaText[0]);
+
+let ctaImg = document.getElementById("cta-img");
+ctaImg.setAttribute('src', siteContent["cta"]["img-src"]);
+
+let btnText = document.getElementsByTagName("button");
+btnText[0].textContent = siteContent["cta"]["button"];
+console.log(siteContent["cta"]["button"]);
+console.log(btnText);
+
+//Main Content
+let allh4 = document.querySelectorAll("h4");
+let counter2 = 1;
+allh4.forEach(currentItem => {
+  currentItem.textContent = siteContent['main-content'][`h4-${counter2}`];
+  counter2++
+})
+
+let allContent = document.querySelectorAll("p");
+let counter3 = 1;
+allContent.forEach(currentItem => {
+  currentItem.textContent = siteContent['main-content'][`content-${counter3}`];
+  counter3++
+})
+
+let mainImg = document.getElementById("middle-img");
+mainImg.setAttribute('src', siteContent["main-content"]["middle-img-src"]);
+
+//Contact
+let lasth4 = document.querySelectorAll("h4")[5];
+lasth4.textContent = "Contact";
+
+let contactP1 = document.querySelectorAll("p")[5];
+contactP1.textContent = siteContent["contact"]["address"];
+let contactP2 = document.querySelectorAll("p")[6];
+contactP2.textContent = siteContent["contact"]["phone"];
+let contactP3 = document.querySelectorAll("p")[7];
+contactP3.textContent = siteContent["contact"]["email"];
+
+//Footer
+let footerP1 = document.querySelectorAll("p")[8];
+footerP1.textContent = siteContent["footer"]["copyright"];
+
+//Add two items to navigation
+selectedNavLinks = document.getElementsByTagName("nav")[0];
+let createNewNode = (name) => {
+  let newNode = document.createElement("a");
+  newNode.innerHTML = name;
+  return newNode;
+}
+selectedNavLinks.prepend(createNewNode("Hotdogs"));
+selectedNavLinks.append(createNewNode("Recipes"));
